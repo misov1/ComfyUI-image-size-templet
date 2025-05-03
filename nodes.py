@@ -8,7 +8,7 @@ class DimensionProviderRatio:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "dimension": (["square 1024x1024", "*portrait 1024x1216", "portrait 896x1152", "portrait 832x1216", "*landscape 1216x1024", "landscape 1152x892", "landscape 1216x832"],),
+                "dimension": (["L-square 1216x1216", "L-portrait 1024x1536", "L-landscape 1536x1024", "square 1024x1024", "*portrait 1024x1216", "portrait 896x1152", "portrait 832x1216", "*landscape 1216x1024", "landscape 1152x892", "landscape 1216x832"],),
             },
         }
 
@@ -19,7 +19,7 @@ class DimensionProviderRatio:
     CATEGORY = "DimensionProviderRatio"
 
     def provide_dimensions(self, dimension):
-        dims = ["1024x1024", "1024x1216", "896x1152", "832x1216", "1216x1024", "1152x892", "1216x832"]
+        dims = ["1216x1216", "1024x1536", "1536x1024", "1024x1024", "1024x1216", "896x1152", "832x1216", "1216x1024", "1152x892", "1216x832"]
         pattern = "[^0-9x]"
         cleaned_dimension = re.sub(pattern, "", dimension)
         index = dims.index(cleaned_dimension)
